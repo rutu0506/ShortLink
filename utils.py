@@ -13,8 +13,8 @@ def init_db():
     c.execute('''
         CREATE TABLE IF NOT EXISTS urls (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            long_url TEXT NOT NULL,
-            short_code TEXT NOT NULL,
+            long_url TEXT NOT NULL UNIQUE,
+            short_code TEXT NOT NULL UNIQUE,
             clicks INTEGER NOT NULL DEFAULT 0,
             created_at DATETIME NOT NULL,
             last_accessed_at DATETIME
